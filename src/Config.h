@@ -24,7 +24,7 @@ struct Config {
     int seed = -777;
     bool tpsCommandAny = true;
     std::string tpsCommandFormat = "[TPS]: %tps%";
-    std::string serverIp = "localhost";
+    std::string serverIp = "127.0.0.1";
     ushort serverPort = 19132;
   } extras{};
 };

@@ -2,7 +2,7 @@ add_rules("mode.debug", "mode.release")
 
 add_repositories("levimc-repo https://github.com/LiteLDev/xmake-repo.git")
 
-add_requires("levilamina 1.5.2", {configs = {target_type = "server"}})
+add_requires("levilamina 1.6.0", {configs = {target_type = "server"}})
 
 add_requires("levibuildscript")
 
