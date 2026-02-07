@@ -4,7 +4,7 @@
 
 #include <mc/world/actor/player/Player.h>
 #include <mc/world/actor/player/SerializedSkinImpl.h>
-#include <mc/world/actor/player/SerializedSkin.h>
+#include <mc/world/actor/player/SerializedSkinRef.h>
 #include <mc/world/actor/player/TrustedSkinFlag.h>
 
 #include <MintVanilla.h>
@@ -18,7 +18,7 @@ LL_TYPE_INSTANCE_HOOK(
   Player,
   &Player::updateSkin,
   void,
-  SerializedSkin const& skin,
+  SerializedSkinRef const& skin,
   int clientSubID
 ) {
   skin.mSkinImpl->mObject.mIsTrustedSkin = TrustedSkinFlag::True;

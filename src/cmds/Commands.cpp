@@ -66,7 +66,7 @@ struct RestartParams {
 };
 
 void registerRestartCommand() {
-  auto& cmd = ll::command::CommandRegistrar::getInstance().getOrCreateCommand(
+  auto& cmd = ll::command::CommandRegistrar::getInstance(false).getOrCreateCommand(
     "restart",
     "Restart server",
     CommandPermissionLevel::GameDirectors,
@@ -85,7 +85,7 @@ void registerRestartCommand() {
         packet.sendToClients();
       }
 
-      if (StopCommand::mServer()) StopCommand::mServer()->requestServerShutdown("");
+      if (StopCommand::mServer()) StopCommand::mServer()->requestServerShutdown();
     }
   );
 }
@@ -93,7 +93,7 @@ void registerRestartCommand() {
 void registerTpsCommand() {
   static ll::memory::HookRegistrar<LevelTickHook> leveltick{};
   
-  auto& cmd = ll::command::CommandRegistrar::getInstance().getOrCreateCommand(
+  auto& cmd = ll::command::CommandRegistrar::getInstance(false).getOrCreateCommand(
     "tps",
     "Get server ticks per seconds",
     mintvanilla::MintVanilla::getInstance().getConfig().extras.tpsCommandAny ? CommandPermissionLevel::Any : CommandPermissionLevel::GameDirectors,
